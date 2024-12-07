@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            student details
+        </title>
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <h1 >Student Manager</h1>
+           
+            <h3>All students: <span id="count">0</span></h3> 
+        </div>
+      <form id="form">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <br><br>
+        <label for="mobile">Mobile</label>
+        <input type="text" id="mobile">
+        <br><br>
+        <label for="address">Address</label>
+        <input type="text" id="address">
+        <br><br>
+        <button type="submit" id="submit"> Add</button>
+        <h1>All students</h1>
+        <ul id="list">
+           
+        </ul>
+      </form>
+        
+    </body>
+    <script src="3hrsjsproject.js">const form=document.getElementById('form');
+        form.addEventListener('submit',function(event){
+        event.preventDefault();
+        const name=document.getElementById('name').value;
+        const mobile=document.getElementById('mobile').value;
+        const address=document.getElementById('address').value;
+        const count=document.getElementById('count');
+        const parent=document.getElementById('list');
+        
+        const newli=document.createElement('li');
+        newli.textContent=`${name}-${mobile}-${address}`;
+        parent.appendChild(newli);
+        const deletebtn=document.createElement('button');
+        
+        deletebtn.textContent='Delete';
+        
+        newli.appendChild(deletebtn);
+        
+        const editbtn=document.createElement('button');
+        editbtn.textContent='Edit';
+        
+        newli.appendChild(editbtn);
+        
+        count.textContent=parseInt(count.textContent,10)+1;
+        document.getElementById('name').value="";
+        document.getElementById('mobile').value="";
+        document.getElementById('address').value="";
+        deletebtn.addEventListener("click",function(){
+            parent.removeChild(newli);
+            count.textContent=parseInt(count.textContent,10)-1;
+        
+        });
+        const add = document.getElementById("submit");
+        add.addEventListener("click", toadd);
+        const data=document.getElementById('li').value;
+        function toadd(){
+            axios.post("https://crudcrud.com/api/f8621bb5018b4910a1060206c1b62414/king",
+            {
+        "userdetails":"data",
+            })
+              .then((res) => console.log(res)
+            )
+              .catch((error) => console.log(error));
+          }
+        });</script>
+    </html>
+</html>
