@@ -1,17 +1,16 @@
 {
-  "name": "nodejsimplementation",
+  "name": "nodem",
   "version": "1.0.0",
-  "main": "hello.js",
+  "description": "",
+  "main": "readwrite.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start":"node readwrite.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security"
-  },
-  "description": ""
+  }
 }
